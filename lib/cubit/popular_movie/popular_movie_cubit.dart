@@ -9,15 +9,20 @@ class PopularMovieCubit extends Cubit<PopularMovieState> {
   }
 
   final MovieRepository repository;
+  int page = 1;
+  bool isFetching = false;
 
   void getPopularMovies() async {
     try {
       emit(LoadingState());
+      print('loading');
 
-      PopularMovieModel popularMovieResponse =
-          await repository.getPopularMovies();
-
-      emit(SuccessState(popularMovieResponse));
+      PopularMovieModel response =
+          await repository.getPopularMovies(page: page);
+          
+      page++;
+      print('success');
+      emit(SuccessState(response));
     } catch (e) {
       emit(ErrorState());
     }

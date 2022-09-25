@@ -11,11 +11,15 @@ class MovieHomePage extends StatefulWidget {
 }
 
 class _MovieHomePageState extends State<MovieHomePage> {
+  final ScrollController _scrollController = ScrollController();
+  bool _loading = true;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Movie App'),
+        title: const Text('Movie App 🍿'),
       ),
       body: BlocBuilder<PopularMovieCubit, PopularMovieState>(
         builder: (context, state) {
@@ -24,14 +28,20 @@ class _MovieHomePageState extends State<MovieHomePage> {
           } else if (state is ErrorState) {
             return const Center(child: Icon(Icons.close));
           } else if (state is SuccessState) {
-            final movies = state.popularMovies;
+            final List movies = state.popularMovies.results;
+            BlocProvider.of<PopularMovieCubit>(context).isFetching = false;
 
             return ListView.builder(
-              itemCount: movies.results.length,
+              controller: _scrollController,
+              itemCount: movies.length,
               itemBuilder: (context, index) => Card(
                 child: ListTile(
-                  title: Text(movies.results[index].title),
-                  leading: const CircleAvatar(),
+                  title: Text(movies[index].title),
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                      'https://image.tmdb.org/t/p/w220_and_h330_face${movies[index].posterPath}',
+                    ),
+                  ),
                 ),
               ),
             );
@@ -41,5 +51,11 @@ class _MovieHomePageState extends State<MovieHomePage> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 }

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:movie_app/models/movie_detail_model.dart';
 import 'package:movie_app/models/popular_movie_model.dart';
 import 'package:movie_app/services/api_base_options.dart';
@@ -6,12 +7,12 @@ import 'package:movie_app/services/api_base_options.dart';
 class MovieRepository {
   final Dio _dio = Dio(dioOptions);
 
-  Future<PopularMovieModel> getPopularMovies() async {
+  Future<PopularMovieModel> getPopularMovies({required int page}) async {
     try {
-      Response response = await _dio.get('/movie/popular');
+      Response response = await _dio.get('/movie/popular?page=$page');
       final data = PopularMovieModel.fromJson(response.data);
 
-      print(response.data);
+   print(response.data);
       return data;
     } catch (e) {
       rethrow;
