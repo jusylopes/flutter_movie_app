@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/cubit/popular_movie/popular_movie_state.dart';
-import 'package:movie_app/models/popular_movie_model.dart';
 import 'package:movie_app/services/movie_repository.dart';
 
 class PopularMovieCubit extends Cubit<PopularMovieState> {
@@ -9,20 +8,19 @@ class PopularMovieCubit extends Cubit<PopularMovieState> {
   }
 
   final MovieRepository repository;
-  int page = 1;
-  bool isFetching = false;
+  int _initialPage = 0;
+  bool isLoading = true;
 
   void getPopularMovies() async {
     try {
-      emit(LoadingState());
-      print('loading');
-
-      PopularMovieModel response =
-          await repository.getPopularMovies(page: page);
-          
-      page++;
+      if (isLoading) {
+        emit(LoadingState());
+         print('loading');
+      }
+      _initialPage++;
+      final response = await repository.getPopularMovies(page: _initialPage);
       print('success');
-      emit(SuccessState(response));
+      emit(SuccessState(popularMovies: response));
     } catch (e) {
       emit(ErrorState());
     }

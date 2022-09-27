@@ -7,13 +7,17 @@ import 'package:movie_app/services/api_base_options.dart';
 class MovieRepository {
   final Dio _dio = Dio(dioOptions);
 
-  Future<PopularMovieModel> getPopularMovies({required int page}) async {
+  Future<List<PopularMovieModel>> getPopularMovies({required int page}) async {
     try {
       Response response = await _dio.get('/movie/popular?page=$page');
-      final data = PopularMovieModel.fromJson(response.data);
+      final data = response.data;
+      List<PopularMovieModel> movies = data['results']
+          .map<PopularMovieModel>(
+              (movies) => PopularMovieModel.fromJson(movies))
+          .toList();
 
-   print(response.data);
-      return data;
+      print(response.data);
+      return movies;
     } catch (e) {
       rethrow;
     }

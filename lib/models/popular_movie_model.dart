@@ -1,27 +1,5 @@
 class PopularMovieModel {
   PopularMovieModel({
-    required this.page,
-    required this.results,
-    required this.totalPages,
-    required this.totalResults,
-  });
-
-  final int page;
-  final List<Result> results;
-  final int totalPages;
-  final int totalResults;
-
-  factory PopularMovieModel.fromJson(Map<String, dynamic> json) => PopularMovieModel(
-        page: json["page"],
-        results:
-            List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
-        totalPages: json["total_pages"],
-        totalResults: json["total_results"],
-      );
-}
-
-class Result {
-  Result({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -38,22 +16,23 @@ class Result {
     required this.voteCount,
   });
 
-  final bool adult;
-  final String backdropPath;
-  final List<int> genreIds;
-  final int id;
-  final String originalLanguage;
-  final String originalTitle;
-  final String overview;
-  final double popularity;
-  final String posterPath;
-  final DateTime releaseDate;
-  final String title;
-  final bool video;
-  final double voteAverage;
-  final int voteCount;
+  final bool? adult;
+  final String? backdropPath;
+  final List<int>? genreIds;
+  final int? id;
+  final String? originalLanguage;
+  final String? originalTitle;
+  final String? overview;
+  final double? popularity;
+  final String? posterPath;
+  final DateTime? releaseDate;
+  final String? title;
+  final bool? video;
+  final double? voteAverage;
+  final int? voteCount;
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory PopularMovieModel.fromJson(Map<String, dynamic> json) =>
+      PopularMovieModel(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
