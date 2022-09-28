@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:movie_app/models/movie_detail_model.dart';
 import 'package:movie_app/models/popular_movie_model.dart';
 import 'package:movie_app/services/api_base_options.dart';
