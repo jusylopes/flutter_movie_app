@@ -22,11 +22,10 @@ class MovieRepository {
     }
   }
 
-  Future<MovieDetailModel> getMovieDetail(int id) async {
+  Future<MovieDetailModel> getMovieDetail({required int id}) async {
     try {
-      Response response = await _dio.get(
-        '/movie/$id',
-      );
+      Response response = await _dio.get('/movie/$id');
+      print('movie detail ${response.data}');
       return MovieDetailModel.fromJson(response.data);
     } catch (e) {
       rethrow;

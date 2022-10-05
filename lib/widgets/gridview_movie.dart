@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/models/popular_movie_model.dart';
+import 'package:movie_app/utils/routes.dart';
 
 class GridViewMovie extends StatelessWidget {
   const GridViewMovie(
@@ -11,7 +11,7 @@ class GridViewMovie extends StatelessWidget {
   final double maxWidth;
   final double maxHeight;
   final ScrollController scrollController;
-  final List<PopularMovieModel> movie;
+  final List movie;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,11 @@ class GridViewMovie extends StatelessWidget {
         itemCount: movie.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
-            print(movie[index].title);
+            Navigator.pushNamed(
+              context,
+              Routes.movieDetail,
+              arguments: movie[index].id,
+            );
           },
           child: GridTile(
             header: Image.network(

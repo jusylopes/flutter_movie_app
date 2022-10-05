@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/cubit/popular_movie/popular_movie_cubit.dart';
 
 class ReloadStateButton extends StatelessWidget {
   const ReloadStateButton({
     Key? key,
-    required this.maxHeight,
+    required this.maxHeight, required this.onPressed,
   }) : super(key: key);
 
   final double maxHeight;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       iconSize: maxHeight / 6,
-      onPressed: () {
-        BlocProvider.of<PopularMovieCubit>(context)
-            .getPopularMovies();
-      },
+      onPressed: onPressed,
       color: Theme.of(context).colorScheme.primary,
       splashColor: Theme.of(context).colorScheme.background,
       icon: const Icon(

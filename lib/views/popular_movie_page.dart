@@ -6,24 +6,24 @@ import 'package:movie_app/models/popular_movie_model.dart';
 import 'package:movie_app/widgets/gridview_movie.dart';
 import 'package:movie_app/widgets/reload_state_button.dart';
 
-class PopularMovie extends StatefulWidget {
-  const PopularMovie({super.key});
+class PopularMoviePage extends StatefulWidget {
+  const PopularMoviePage({super.key});
 
   @override
-  State<PopularMovie> createState() => _PopularMovie();
+  State<PopularMoviePage> createState() => _PopularMovie();
 }
 
-class _PopularMovie extends State<PopularMovie> {
-  final List<PopularMovieModel> movies = [];
+class _PopularMovie extends State<PopularMoviePage> {
+  final List<PopularMovieModel> _movies = [];
   final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
-    onScroll();
+    _onScroll();
   }
 
-  void onScroll() {
+  void _onScroll() {
     _scrollController.addListener(() async {
       if (_scrollController.position.maxScrollExtent ==
               _scrollController.offset &&
@@ -41,21 +41,25 @@ class _PopularMovie extends State<PopularMovie> {
 
       return BlocBuilder<PopularMovieCubit, PopularMovieState>(
         builder: (context, state) {
-          if (state is InitialState ||
-              state is LoadingState && movies.isEmpty) {
+          if (state is InitialState || state is LoadingState) {
             const Center(child: CircularProgressIndicator());
           } else if (state is ErrorState) {
             return Center(
-              child: ReloadStateButton(maxHeight: maxHeight),
+              child: ReloadStateButton(
+                  maxHeight: maxHeight,
+                  onPressed: () {
+                    BlocProvider.of<PopularMovieCubit>(context)
+                        .getPopularMovies();
+                  }),
             );
           } else if (state is SuccessState) {
-            movies.addAll(state.popularMovies);
+            _movies.addAll(state.popularMovies);
           }
           return GridViewMovie(
               maxHeight: maxHeight,
               maxWidth: maxWidth,
               scrollController: _scrollController,
-              movie: movies);
+              movie: _movies);
         },
       );
     });

@@ -13,8 +13,6 @@ class MovieDetailModel {
     required this.overview,
     required this.popularity,
     required this.posterPath,
-    required this.productionCompanies,
-    required this.productionCountries,
     required this.releaseDate,
     required this.revenue,
     required this.runtime,
@@ -40,8 +38,7 @@ class MovieDetailModel {
   final String overview;
   final double popularity;
   final String posterPath;
-  final List<ProductionCompany> productionCompanies;
-  final List<ProductionCountry> productionCountries;
+
   final DateTime releaseDate;
   final int revenue;
   final int runtime;
@@ -53,7 +50,8 @@ class MovieDetailModel {
   final double voteAverage;
   final int voteCount;
 
-  factory MovieDetailModel.fromJson(Map<String, dynamic> json) => MovieDetailModel(
+  factory MovieDetailModel.fromJson(Map<String, dynamic> json) =>
+      MovieDetailModel(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
         belongsToCollection: json["belongs_to_collection"],
@@ -67,12 +65,6 @@ class MovieDetailModel {
         overview: json["overview"],
         popularity: json["popularity"].toDouble(),
         posterPath: json["poster_path"],
-        productionCompanies: List<ProductionCompany>.from(
-            json["production_companies"]
-                .map((x) => ProductionCompany.fromJson(x))),
-        productionCountries: List<ProductionCountry>.from(
-            json["production_countries"]
-                .map((x) => ProductionCountry.fromJson(x))),
         releaseDate: DateTime.parse(json["release_date"]),
         revenue: json["revenue"],
         runtime: json["runtime"],
@@ -118,7 +110,7 @@ class ProductionCompany {
   factory ProductionCompany.fromJson(Map<String, dynamic> json) =>
       ProductionCompany(
         id: json["id"],
-        logoPath: json["logo_path"] ?? null,
+        logoPath: json["logo_path"],
         name: json["name"],
         originCountry: json["origin_country"],
       );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/widgets/popular_movie.dart';
+import 'package:movie_app/views/popular_movie_page.dart';
 
 class MovieHomePage extends StatelessWidget {
   const MovieHomePage({super.key});
@@ -40,7 +40,7 @@ class MovieHomePage extends StatelessWidget {
               ]),
         ),
         body: const TabBarView(children: [
-          PopularMovie(),
+          PopularMoviePage(),
           Text('favoritos'),
         ]),
       ),
