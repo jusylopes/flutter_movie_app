@@ -33,15 +33,15 @@ class MovieHomePage extends StatelessWidget {
               tabs: const [
                 Tab(
                   child: Text(
-                    'Populares',
+                    'Popular',
                   ),
                 ),
-                Tab(child: Text('Favoritos')),
+                Tab(child: Text('Favorites')),
               ]),
         ),
         body: const TabBarView(children: [
           PopularMoviePage(),
-          Text('favoritos'),
+          Text('favorites'),
         ]),
       ),
     );

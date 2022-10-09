@@ -27,8 +27,8 @@ class _PopularMovie extends State<PopularMoviePage> {
     _scrollController.addListener(() async {
       if (_scrollController.position.maxScrollExtent ==
               _scrollController.offset &&
-          !BlocProvider.of<PopularMovieCubit>(context).isLoading) {
-        BlocProvider.of<PopularMovieCubit>(context).getPopularMovies();
+          !context.read<PopularMovieCubit>().isLoading) {
+        context.read<PopularMovieCubit>().getPopularMovies();
       }
     });
   }
@@ -48,8 +48,7 @@ class _PopularMovie extends State<PopularMoviePage> {
               child: ReloadStateButton(
                   maxHeight: maxHeight,
                   onPressed: () {
-                    BlocProvider.of<PopularMovieCubit>(context)
-                        .getPopularMovies();
+                    context.read<PopularMovieCubit>().getPopularMovies();
                   }),
             );
           } else if (state is SuccessState) {

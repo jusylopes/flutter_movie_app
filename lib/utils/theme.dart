@@ -15,20 +15,22 @@ Map<int, Color> _color = {
 
 MaterialColor _colorCustom = MaterialColor(0xFFE50914, _color);
 
-class MovieTheme {
+abstract class MovieTheme {
   static ThemeData get dark => ThemeData(
         primarySwatch: _colorCustom,
-        // brightness: Brightness.dark,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Poppins',
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(fontSize: 16.0, color: Colors.white),
+        textTheme: TextTheme(
+          headline1: const TextStyle(fontSize: 24.0, color: Colors.white),
+          headline2: TextStyle(fontSize: 20.0, color: _colorCustom),
+          bodyText1: const TextStyle(fontSize: 14.0, color: Colors.white),
         ),
         appBarTheme: const AppBarTheme(
           toolbarHeight: 80,
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
+  
         scaffoldBackgroundColor: const Color(0xff1b1b1b),
       );
 }

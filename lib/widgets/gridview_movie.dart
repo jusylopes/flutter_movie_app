@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/utils/constants.dart';
 import 'package:movie_app/utils/routes.dart';
 
 class GridViewMovie extends StatelessWidget {
@@ -35,7 +36,7 @@ class GridViewMovie extends StatelessWidget {
           },
           child: GridTile(
             header: Image.network(
-              'https://image.tmdb.org/t/p/w220_and_h330_face${movie[index].posterPath}',
+              Constants.urlImagePoster + movie[index].posterPath,
               fit: BoxFit.cover,
             ),
             footer: Text(

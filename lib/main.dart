@@ -15,7 +15,6 @@ class MovieApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Movie App',
       theme: MovieTheme.dark,
-      initialRoute: Routes.inicial,
       onGenerateRoute: Routes.generateRoute,
     );
   }

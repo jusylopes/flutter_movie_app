@@ -6,9 +6,5 @@ final dioOptions = BaseOptions(
   connectTimeout: 5000,
   receiveTimeout: 3000,
   contentType: 'application/json;charset=utf-8',
-  headers: {
-    'Authorization':
-        'Bearer $apiKey'
-  },
+  headers: {'Authorization': 'Bearer ${Constants.apiKey}'},
 );
-
