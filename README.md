@@ -1,16 +1,26 @@
 # 🎥 Movie App
+## Sobre o projeto
 
-A new Flutter project.
+Aplicativo para exibir filmes através da API The Movie Database (conhecida como TMDB). 
+Nesse projeto é possível obter uma lista dos filmes populares atuais no TMDB, informações primárias sobre cada filme e, 
+uma lista de tendências diárias.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Layout mobile
+<p>
+<img src="screenshots/Screenshot_1665555214.png" width="25%">
+<img src="screenshots/Screenshot_1665555146.png" width="25%">
+<img src="screenshots/Screenshot_1665555255.png" width="25%">
+</p>
 
-A few resources to get you started if this is your first Flutter project:
+### Tecnologias utilizadas
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* Flutter
+* API - The Movie Database (TMDB)
+* Bloc
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+### Desenvolvedora
+
+Jusy Lopes
+https://www.linkedin.com/in/jusylopes
