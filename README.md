@@ -6,11 +6,12 @@ Nesse projeto é possível obter uma lista dos filmes populares atuais no TMDB, 
 uma lista de tendências diárias.
 
 
-## Layout mobile
+## Layout 
 <p>
 <img src="screenshots/Screenshot_1665555214.png" width="25%">
 <img src="screenshots/Screenshot_1665555146.png" width="25%">
 <img src="screenshots/Screenshot_1665555255.png" width="25%">
+
 </p>
 <p><img src="screenshots/Screenshot_web.png" width="76%"></p>
 
