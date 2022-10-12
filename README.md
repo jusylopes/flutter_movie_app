@@ -12,6 +12,7 @@ uma lista de tendências diárias.
 <img src="screenshots/Screenshot_1665555146.png" width="25%">
 <img src="screenshots/Screenshot_1665555255.png" width="25%">
 </p>
+<p><img src="screenshots/Screenshot_web.png" width="76%"></p>
 
 ### Tecnologias utilizadas
 
