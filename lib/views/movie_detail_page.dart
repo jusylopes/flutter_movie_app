@@ -6,7 +6,7 @@ import 'package:movie_app/widgets/movie_detail_widget.dart';
 import 'package:movie_app/widgets/reload_state_button.dart';
 
 class MovieDetailPage extends StatefulWidget {
-  final int movieId;
+  final  movieId;
 
   const MovieDetailPage({super.key, required this.movieId});
 
@@ -49,7 +49,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                     maxHeight: maxHeight, onPressed: _loadMovie),
               );
             } else if (state is SuccessState) {
-              final movie = state.movies;
+              final movie = state.movie;
 
               return MovieDetailsWidget(
                   maxHeight: maxHeight, movie: movie, maxWidth: maxWidth);

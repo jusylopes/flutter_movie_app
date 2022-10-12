@@ -1,32 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/cubit/movie_detail/movie_detail_cubit.dart';
-import 'package:movie_app/cubit/popular_movie/popular_movie_cubit.dart';
-import 'package:movie_app/services/movie_repository.dart';
 import 'package:movie_app/views/movie_detail_page.dart';
 import 'package:movie_app/views/movie_home_page.dart';
+import 'package:movie_app/views/popular_movies_page.dart';
+import 'package:movie_app/views/trending_movies_page.dart';
 
 abstract class Routes {
-  static const String inicial = '/';
+  static const String popularMovies = '/popular_movies';
   static const String movieDetail = '/movie_detail';
+  static const String trendingMovies = '/trending_movies';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
+    final args = settings.arguments;
+
     switch (settings.name) {
       case movieDetail:
-        final moveId = settings.arguments as int;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => MovieDetailCubit(repository: MovieRepository()),
-            child: MovieDetailPage(movieId: moveId),
-          ),
+          builder: (context) => MovieDetailPage(movieId: args),
+        );
+
+      case trendingMovies:
+        return MaterialPageRoute(
+          builder: (context) => const TrendingMoviesPage(),
+        );
+
+      case popularMovies:
+        return MaterialPageRoute(
+          builder: (context) => const PopularMoviesPage(),
         );
 
       default:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => PopularMovieCubit(repository: MovieRepository()),
-            child: const MovieHomePage(),
-          ),
+          builder: (context) => const MovieHomePage(),
         );
     }
   }

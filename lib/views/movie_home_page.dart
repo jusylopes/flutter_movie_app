@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/views/popular_movie_page.dart';
+import 'package:movie_app/views/trending_movies_page.dart';
+import 'package:movie_app/views/popular_movies_page.dart';
 
 class MovieHomePage extends StatelessWidget {
   const MovieHomePage({super.key});
@@ -26,22 +27,20 @@ class MovieHomePage extends StatelessWidget {
           ),
           actions: const [],
           bottom: TabBar(
-              labelStyle:
-                  const TextStyle(fontSize: 20.0, fontFamily: 'Poppins'),
+              labelStyle: const TextStyle(
+                fontSize: 20.0,
+                fontFamily: 'Poppins',
+              ),
               labelColor: Theme.of(context).primaryColor,
               unselectedLabelColor: Colors.grey,
               tabs: const [
-                Tab(
-                  child: Text(
-                    'Popular',
-                  ),
-                ),
-                Tab(child: Text('Favorites')),
+                Tab(child: Text('Popular')),
+                Tab(child: Text('Trending'))
               ]),
         ),
         body: const TabBarView(children: [
-          PopularMoviePage(),
-          Text('favorites'),
+          PopularMoviesPage(),
+          TrendingMoviesPage(),
         ]),
       ),
     );

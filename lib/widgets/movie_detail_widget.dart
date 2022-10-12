@@ -36,25 +36,13 @@ class MovieDetailsWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 15, top: 15),
           child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            SizedBox(
-              width: maxWidth / 1.5,
-              child: Text(
-                movie.title,
-                style: Theme.of(context).textTheme.headline1,
+              SizedBox(
+                width: maxWidth / 1.5,
+                child: Text(
+                  movie.title,
+                  style: Theme.of(context).textTheme.headline1,
+                ),
               ),
-            ),
-            Padding(
-                padding: const EdgeInsets.only(right: 50),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.favorite_border,
-                    color: Theme.of(context).primaryColor,
-                    size: maxHeight / 18,
-                  ),
-                ))
-          ]),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 15, top: 15),

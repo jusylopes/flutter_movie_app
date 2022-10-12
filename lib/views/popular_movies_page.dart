@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/cubit/popular_movie/popular_movie_cubit.dart';
-import 'package:movie_app/cubit/popular_movie/popular_movie_state.dart';
-import 'package:movie_app/models/popular_movie_model.dart';
+import 'package:movie_app/cubit/popular_movies/popular_movies_cubit.dart';
+import 'package:movie_app/cubit/popular_movies/popular_movies_state.dart';
+import 'package:movie_app/models/popular_movies_model.dart';
 import 'package:movie_app/widgets/gridview_movie.dart';
 import 'package:movie_app/widgets/reload_state_button.dart';
 
-class PopularMoviePage extends StatefulWidget {
-  const PopularMoviePage({super.key});
+class PopularMoviesPage extends StatefulWidget {
+  const PopularMoviesPage({super.key});
 
   @override
-  State<PopularMoviePage> createState() => _PopularMovie();
+  State<PopularMoviesPage> createState() => _PopularMovie();
 }
 
-class _PopularMovie extends State<PopularMoviePage> {
-  final List<PopularMovieModel> _movies = [];
+class _PopularMovie extends State<PopularMoviesPage> {
+  final List<PopularMoviesModel> _movies = [];
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -27,8 +27,8 @@ class _PopularMovie extends State<PopularMoviePage> {
     _scrollController.addListener(() async {
       if (_scrollController.position.maxScrollExtent ==
               _scrollController.offset &&
-          !context.read<PopularMovieCubit>().isLoading) {
-        context.read<PopularMovieCubit>().getPopularMovies();
+          !context.read<PopularMoviesCubit>().isLoading) {
+        context.read<PopularMoviesCubit>().getPopularMovies();
       }
     });
   }
@@ -39,7 +39,7 @@ class _PopularMovie extends State<PopularMoviePage> {
       final double maxWidth = constraints.maxWidth;
       final double maxHeight = constraints.maxHeight;
 
-      return BlocBuilder<PopularMovieCubit, PopularMovieState>(
+      return BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
         builder: (context, state) {
           if (state is InitialState || state is LoadingState) {
             const Center(child: CircularProgressIndicator());
@@ -48,7 +48,7 @@ class _PopularMovie extends State<PopularMoviePage> {
               child: ReloadStateButton(
                   maxHeight: maxHeight,
                   onPressed: () {
-                    context.read<PopularMovieCubit>().getPopularMovies();
+                    context.read<PopularMoviesCubit>().getPopularMovies();
                   }),
             );
           } else if (state is SuccessState) {

@@ -6,12 +6,13 @@ class GridViewMovie extends StatelessWidget {
   const GridViewMovie(
       {super.key,
       required this.maxWidth,
-      required this.maxHeight,
-      required this.scrollController,
-      required this.movie});
+      required this.maxHeight,      
+      required this.movie, this.scrollController} 
+     );
+  
   final double maxWidth;
   final double maxHeight;
-  final ScrollController scrollController;
+  final ScrollController? scrollController;
   final List movie;
 
   @override
@@ -32,6 +33,7 @@ class GridViewMovie extends StatelessWidget {
               context,
               Routes.movieDetail,
               arguments: movie[index].id,
+              
             );
           },
           child: GridTile(

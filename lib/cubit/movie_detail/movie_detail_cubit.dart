@@ -7,20 +7,13 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
 
   final MovieRepository repository;
 
-  void getMovieDetail({required int id}) async {
+  Future<void> getMovieDetail({required int id}) async {
     try {
       emit(LoadingState());
-      print('loading');
-      print(id);
       final response = await repository.getMovieDetail(id: id);
-
-      print(response);
-
-      emit(SuccessState(response));
-      print('sucess');
+      emit(SuccessState(movie: response));
     } catch (e) {
       emit(ErrorState());
-      print('error');
     }
   }
 }

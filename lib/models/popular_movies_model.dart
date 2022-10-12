@@ -1,5 +1,5 @@
-class PopularMovieModel {
-  PopularMovieModel({
+class PopularMoviesModel {
+  PopularMoviesModel({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
@@ -31,8 +31,8 @@ class PopularMovieModel {
   final double voteAverage;
   final int voteCount;
 
-  factory PopularMovieModel.fromJson(Map<String, dynamic> json) =>
-      PopularMovieModel(
+  factory PopularMoviesModel.fromJson(Map<String, dynamic> json) =>
+      PopularMoviesModel(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
