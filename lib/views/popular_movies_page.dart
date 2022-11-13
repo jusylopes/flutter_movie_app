@@ -42,11 +42,11 @@ class _PopularMovie extends State<PopularMoviesPage> {
       return BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
         builder: (context, state) {
           if (state is InitialState || state is LoadingState) {
-            const Center(child: CircularProgressIndicator());
+           return const Center(child: CircularProgressIndicator());
           } else if (state is ErrorState) {
             return Center(
               child: ReloadStateButton(
-                  maxHeight: maxHeight,
+                  size: maxHeight,
                   onPressed: () {
                     context.read<PopularMoviesCubit>().getPopularMovies();
                   }),

@@ -6,7 +6,7 @@ import 'package:movie_app/widgets/movie_detail_widget.dart';
 import 'package:movie_app/widgets/reload_state_button.dart';
 
 class MovieDetailPage extends StatefulWidget {
-  final  movieId;
+  final movieId;
 
   const MovieDetailPage({super.key, required this.movieId});
 
@@ -42,11 +42,11 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
         return BlocBuilder<MovieDetailCubit, MovieDetailState>(
           builder: (context, state) {
             if (state is InitialState || state is LoadingState) {
-              const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (state is ErrorState) {
               return Center(
-                child: ReloadStateButton(
-                    maxHeight: maxHeight, onPressed: _loadMovie),
+                child:
+                    ReloadStateButton(size: maxWidth, onPressed: _loadMovie),
               );
             } else if (state is SuccessState) {
               final movie = state.movie;
