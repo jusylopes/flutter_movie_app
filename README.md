@@ -2,8 +2,8 @@
 ## Sobre o projeto
 
 Aplicativo para exibir filmes através da API [The Movie Database](https://www.themoviedb.org/documentation/api?language=pt-BR) (conhecida como TMDB). 
-Nesse projeto é possível obter uma lista dos filmes populares atuais no TMDB, informações primárias sobre cada filme e, 
-uma lista de tendências diárias.
+<br>Nesse projeto é possível obter uma lista dos filmes populares atuais no TMDB, informações primárias sobre cada filme e, 
+uma lista de tendências diárias.</br>
 
 
 ## Layout 
