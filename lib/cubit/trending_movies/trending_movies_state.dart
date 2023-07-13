@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:movie_app/models/trending_movies_model.dart';
+import 'package:movie_app/models/movie_trending_model.dart';
 
 abstract class TrendingMoviesState extends Equatable {}
 
@@ -15,7 +15,7 @@ class LoadingState extends TrendingMoviesState {
 
 class SuccessState extends TrendingMoviesState {
   SuccessState({required this.trendingMovies});
-  final List <TrendingMoviesModel> trendingMovies;
+  final List<MovieTrendingModel> trendingMovies;
 
   @override
   List<Object> get props => [trendingMovies];

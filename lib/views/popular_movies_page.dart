@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/cubit/popular_movies/popular_movies_cubit.dart';
 import 'package:movie_app/cubit/popular_movies/popular_movies_state.dart';
-import 'package:movie_app/models/popular_movies_model.dart';
+import 'package:movie_app/models/movie_popular_model.dart';
+import 'package:movie_app/models/movie_trending_model.dart';
 import 'package:movie_app/widgets/gridview_movie.dart';
 import 'package:movie_app/widgets/reload_state_button.dart';
 
@@ -14,7 +15,7 @@ class PopularMoviesPage extends StatefulWidget {
 }
 
 class _PopularMovie extends State<PopularMoviesPage> {
-  final List<PopularMoviesModel> _movies = [];
+  final List<MoviePopularModel> _movies = [];
   final ScrollController _scrollController = ScrollController();
 
   @override

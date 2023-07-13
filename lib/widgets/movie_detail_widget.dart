@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie_detail_model.dart';
-import 'package:movie_app/utils/constants.dart';
+import 'package:movie_app/utils/strings.dart';
 
 class MovieDetailsWidget extends StatelessWidget {
   const MovieDetailsWidget({
@@ -32,7 +32,7 @@ class MovieDetailsWidget extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                    Constants.urlImagePoster + movie.backdropPath,
+                    MovieStrings.urlImagePoster + movie.backdropPath,
                   ),
                 ),
               ),

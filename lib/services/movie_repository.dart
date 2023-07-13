@@ -11,7 +11,7 @@ class MovieRepository {
 
   Future<List<MoviePopularModel>> getPopularMovies({required int page}) async {
     try {
-      Response response = await _dio.get('https://api.themoviedb.org/3/movie/popular?api_key=${MovieStrings.apiKey}');
+      Response response = await _dio.get('${MovieStrings.endpointMovieDetail}$page');
       final data = response.data;
       List<MoviePopularModel> movies = data['results']
           .map<MoviePopularModel>(

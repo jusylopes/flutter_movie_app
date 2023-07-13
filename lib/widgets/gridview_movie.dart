@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/utils/constants.dart';
+import 'package:movie_app/utils/strings.dart';
 import 'package:movie_app/utils/routes.dart';
 
 class GridViewMovie extends StatelessWidget {
   const GridViewMovie(
       {super.key,
       required this.maxWidth,
-      required this.maxHeight,      
-      required this.movie, this.scrollController} 
-     );
-  
+      required this.maxHeight,
+      required this.movie,
+      this.scrollController});
+
   final double maxWidth;
   final double maxHeight;
   final ScrollController? scrollController;
@@ -33,12 +33,11 @@ class GridViewMovie extends StatelessWidget {
               context,
               Routes.movieDetail,
               arguments: movie[index].id,
-              
             );
           },
           child: GridTile(
             header: Image.network(
-              Constants.urlImagePoster + movie[index].posterPath,
+              MovieStrings.urlImagePoster + movie[index].posterPath,
               fit: BoxFit.cover,
             ),
             footer: Text(

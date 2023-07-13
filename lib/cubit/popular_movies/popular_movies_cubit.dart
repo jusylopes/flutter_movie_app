@@ -8,7 +8,7 @@ class PopularMoviesCubit extends Cubit<PopularMoviesState> {
   }
 
   final MovieRepository repository;
-  int initialPage = 0;
+  int initialPage = 1;
   bool isLoading = false;
 
   Future<void> getPopularMovies() async {
@@ -17,13 +17,14 @@ class PopularMoviesCubit extends Cubit<PopularMoviesState> {
 
       isLoading = true;
       initialPage++;
-      
+      print('loading');
       final response = await repository.getPopularMovies(page: initialPage);
-
+  print(response);
       emit(SuccessState(popularMovies: response));
       isLoading = false;
     } catch (e) {
       emit(ErrorState());
+     
     }
   }
 }
