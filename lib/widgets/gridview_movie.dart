@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/utils/strings.dart';
 import 'package:movie_app/utils/routes.dart';
 
-class GridViewMovie extends StatelessWidget {
+class GridViewMovie extends StatefulWidget {
   const GridViewMovie(
       {super.key,
       required this.maxWidth,
@@ -16,33 +16,40 @@ class GridViewMovie extends StatelessWidget {
   final List movie;
 
   @override
+  State<GridViewMovie> createState() => _GridViewMovieState();
+}
+
+class _GridViewMovieState extends State<GridViewMovie> {
+  final ScrollController scrollController = ScrollController();
+
+  @override
   Widget build(BuildContext context) {
     return Scrollbar(
+      controller: scrollController,
       child: GridView.builder(
         padding: const EdgeInsets.all(15),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisSpacing: 15,
             mainAxisSpacing: 15,
-            crossAxisCount: maxWidth ~/ 130,
+            crossAxisCount: widget.maxWidth ~/ 130,
             childAspectRatio: 9 / 18),
-        controller: scrollController,
-        itemCount: movie.length,
+        itemCount: widget.movie.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
             Navigator.pushNamed(
               context,
               Routes.movieDetail,
-              arguments: movie[index].id,
+              arguments: widget.movie[index].id,
             );
           },
           child: GridTile(
             header: Image.network(
-              MovieStrings.urlImagePoster + movie[index].posterPath,
+              MovieStrings.urlImagePoster + widget.movie[index].posterPath,
               fit: BoxFit.cover,
             ),
             footer: Text(
-              movie[index].title,
-              style: Theme.of(context).textTheme.bodyText1,
+              widget.movie[index].title,
+              style: Theme.of(context).textTheme.bodyLarge,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -51,5 +58,11 @@ class GridViewMovie extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+   scrollController.dispose();
+    super.dispose();
   }
 }
