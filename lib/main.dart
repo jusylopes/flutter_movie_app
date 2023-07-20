@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/cubit/movie_detail/movie_detail_cubit.dart';
-import 'package:movie_app/cubit/popular_movies/popular_movies_cubit.dart';
-import 'package:movie_app/cubit/trending_movies/trending_movies_cubit.dart';
-import 'package:movie_app/utils/routes.dart';
+import 'package:movie_app/cubit/popular/popular_cubit.dart';
+import 'package:movie_app/cubit/trending/trending_cubit.dart';
+import 'package:movie_app/utils/strings.dart';
 import 'package:movie_app/utils/theme.dart';
-import 'package:movie_app/views/movie_home_page.dart';
-
-import 'services/movie_repository.dart';
+import 'package:movie_app/screens/home/home_screen.dart';
+import 'package:movie_app/repositories/movie_repository.dart';
 
 void main() {
   runApp(const MovieApp());
@@ -24,18 +23,17 @@ class MovieApp extends StatelessWidget {
           create: (_) => MovieDetailCubit(repository: MovieRepository()),
         ),
         BlocProvider(
-          create: (_) => TrendingMoviesCubit(repository: MovieRepository()),
+          create: (_) => TrendingMovieCubit(repository: MovieRepository()),
         ),
         BlocProvider(
-          create: (_) => PopularMoviesCubit(repository: MovieRepository()),
+          create: (_) => PopularMovieCubit(repository: MovieRepository()),
         ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Movie App',
+        title: MovieStrings.appName,
         theme: MovieTheme.dark,
-        home: const MovieHomePage(),
-        onGenerateRoute: Routes.generateRoute,
+        home: const HomeSreen(),
       ),
     );
   }
