@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/screens/trending_movies_page.dart';
-import 'package:movie_app/screens/popular_movies_page.dart';
+import 'package:movie_app/screens/trending/trending_movies_page.dart';
+import 'package:movie_app/screens/popular/popular_screen.dart';
 import 'package:movie_app/utils/strings.dart';
 
 class HomeSreen extends StatelessWidget {
@@ -20,7 +20,7 @@ class HomeSreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20),
             child: Text(
               MovieStrings.appName,
-              style:  Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
           bottom: TabBar(
@@ -33,7 +33,7 @@ class HomeSreen extends StatelessWidget {
               ]),
         ),
         body: const TabBarView(children: [
-          PopularMoviesPage(),
+          PopularMovieScreen(),
           TrendingMoviesPage(),
         ]),
       ),

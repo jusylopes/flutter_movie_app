@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/screens/movie_detail/movie_detail_screen.dart';
 import 'package:movie_app/utils/strings.dart';
-import 'package:movie_app/utils/routes.dart';
 
 class GridViewMovie extends StatefulWidget {
-  const GridViewMovie(
-      {super.key,
-      required this.maxWidth,
-      required this.maxHeight,
-      required this.movie,
-      this.scrollController});
+  const GridViewMovie({super.key, required this.movie, this.scrollController});
 
-  final double maxWidth;
-  final double maxHeight;
   final ScrollController? scrollController;
   final List movie;
 
@@ -24,6 +17,8 @@ class _GridViewMovieState extends State<GridViewMovie> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scrollbar(
       controller: scrollController,
       child: GridView.builder(
@@ -31,15 +26,17 @@ class _GridViewMovieState extends State<GridViewMovie> {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisSpacing: 15,
             mainAxisSpacing: 15,
-            crossAxisCount: widget.maxWidth ~/ 130,
+            crossAxisCount: screenWidth ~/ 130,
             childAspectRatio: 9 / 18),
         itemCount: widget.movie.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
-            Navigator.pushNamed(
+            Navigator.push(
               context,
-              Routes.movieDetail,
-              arguments: widget.movie[index].id,
+              MaterialPageRoute(
+                builder: (context) =>
+                    MovieDetailScreen(movieId: widget.movie[index].id),
+              ),
             );
           },
           child: GridTile(
@@ -49,7 +46,7 @@ class _GridViewMovieState extends State<GridViewMovie> {
             ),
             footer: Text(
               widget.movie[index].title,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
@@ -62,7 +59,7 @@ class _GridViewMovieState extends State<GridViewMovie> {
 
   @override
   void dispose() {
-   scrollController.dispose();
+    scrollController.dispose();
     super.dispose();
   }
 }

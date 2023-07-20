@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/utils/strings.dart';
 
 Map<int, Color> _color = {
   50: const Color.fromRGBO(90, 4, 8, .1),
@@ -19,18 +20,19 @@ abstract class MovieTheme {
   static ThemeData get dark => ThemeData(
         primarySwatch: _colorCustom,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: 'Poppins',
+        fontFamily: MovieStrings.appFontFamily,
         textTheme: TextTheme(
-          headline1: const TextStyle(fontSize: 24.0, color: Colors.white),
-          headline2: TextStyle(fontSize: 20.0, color: _colorCustom),
-          bodyText1: const TextStyle(fontSize: 14.0, color: Colors.white),
+          titleLarge: TextStyle(fontSize: 30.0, color: _colorCustom),
+          titleMedium: const TextStyle(fontSize: 24.0, color: Colors.white),
+          titleSmall: TextStyle(fontSize: 20.0, color: _colorCustom),
+          bodyMedium: const TextStyle(fontSize: 14.0, color: Colors.white),
+           bodySmall: const TextStyle(fontSize: 12.0, color: Colors.white),
         ),
         appBarTheme: const AppBarTheme(
           toolbarHeight: 80,
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
-  
         scaffoldBackgroundColor: const Color(0xff1b1b1b),
       );
 }
