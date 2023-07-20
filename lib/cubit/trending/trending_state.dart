@@ -15,7 +15,7 @@ class LoadingState extends TrendingMovieState {
 
 class SuccessState extends TrendingMovieState {
   SuccessState({required this.trendingMovies});
-  final List<TrendingModel> trendingMovies;
+  final List<MovieTrendingModel> trendingMovies;
 
   @override
   List<Object> get props => [trendingMovies];

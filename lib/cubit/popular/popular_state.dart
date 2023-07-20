@@ -15,7 +15,7 @@ class LoadingState extends PopularMovieState {
 
 class SuccessState extends PopularMovieState {
   SuccessState({required this.movies});
-  final List<PopularModel> movies;
+  final List<MoviePopularModel> movies;
 
   @override
   List<Object> get props => [movies];
