@@ -8,12 +8,12 @@ uma lista de tendências diárias.</br>
 
 ## Layout 
 <p>
-<img src="screenshots/Screenshot_1665555214.png" width="25%">
-<img src="screenshots/Screenshot_1665555146.png" width="25%">
-<img src="screenshots/Screenshot_1665555255.png" width="25%">
-
+<img src="screenshots/Screenshot_1.png" width="20%">
+<img src="screenshots/Screenshot_2.png" width="20%">
+<img src="screenshots/Screenshot_3.png" width="20%">
+<img src="screenshots/Screenshot_4.png" width="20%">
 </p>
-<p><img src="screenshots/Screenshot_web.png" width="76%"></p>
+
 
 ### Tecnologias utilizadas
 
