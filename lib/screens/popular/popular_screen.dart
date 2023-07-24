@@ -56,7 +56,7 @@ class _PopularMovieScreenState extends State<PopularMovieScreen>
         } else if (state is ErrorState) {
           return const ErrorMessage();
         } else if (state is SuccessState) {
-          _movies.addAll(state.movies);
+          _movies.addAll(state.popularMovies);
           BlocProvider.of<PopularMovieBloc>(context).isFetching = false;
         }
 

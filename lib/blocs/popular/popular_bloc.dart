@@ -21,10 +21,8 @@ class PopularMovieBloc extends Bloc<PopularMovieEvent, PopularMovieState> {
             await _repository.getPopularMovies(page: _currentPage);
 
         isFetching = false;
-        emit(SuccessState(movies: response));
+        emit(SuccessState(popularMovies: response));
         _currentPage++;
-        print(_currentPage);
-        
       } catch (e) {
         isFetching = false;
         emit(ErrorState());

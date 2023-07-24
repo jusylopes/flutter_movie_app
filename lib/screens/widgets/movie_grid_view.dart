@@ -3,16 +3,12 @@ import 'package:movie_app/screens/movie_detail/movie_detail_screen.dart';
 import 'package:movie_app/utils/strings.dart';
 
 class MovieGridView extends StatefulWidget {
-  const MovieGridView(
-      {Key? key,
-      required List<dynamic> movie,
-      required ScrollController controller})
-      : _controller = controller,
-        _movie = movie,
+  const MovieGridView({Key? key, required List<dynamic> movie, ScrollController? controller})
+      : _controller = controller, _movie = movie,
         super(key: key);
 
   final List _movie;
-  final ScrollController _controller;
+  final ScrollController? _controller;
 
   @override
   State<MovieGridView> createState() => _MovieGridViewState();
@@ -63,7 +59,7 @@ class _MovieGridViewState extends State<MovieGridView> {
 
   @override
   void dispose() {
-    widget._controller.dispose();
+    widget._controller?.dispose();
     super.dispose();
   }
 }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MovieStarRating extends StatelessWidget {
-  final double rating;
-  const MovieStarRating({super.key, required this.rating});
+  final double _rating;
+  const MovieStarRating({super.key, required double rating}) : _rating = rating;
 
   @override
   Widget build(BuildContext context) {
-    int fullStars = rating.floor();
-    bool hasHalfStar = (rating - fullStars) >= 0.5;
+    int fullStars = _rating.floor();
+    bool hasHalfStar = (_rating - fullStars) >= 0.5;
     Color iconColorStar = Colors.amber;
     double iconSizeStar = 20;
 
