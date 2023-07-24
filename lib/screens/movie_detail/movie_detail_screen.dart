@@ -50,6 +50,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                 MovieDetailHeaderImage(movie: state.movie),
                 MovieDetailBody(movie: state.movie)
               ],
+              
             );
           } else {
             return Container();
