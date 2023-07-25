@@ -8,10 +8,10 @@ uma lista de tendências diárias.</br>
 
 ## Layout 
 <p>
-<img src="screenshots/movie_app.gif" width="20%">
-<img src="screenshots/Screenshot_2.png" width="20%">
 <img src="screenshots/Screenshot_1.png" width="20%">
+<img src="screenshots/Screenshot_2.png" width="20%">
 <img src="screenshots/Screenshot_4.png" width="20%">
+<img src="screenshots/movie_app.gif" width="20%">
 </p>
 
 
