@@ -10,8 +10,8 @@ uma lista de tendências diárias.</br>
 <p>
 <img src="screenshots/Screenshot_1.png" width="20%">
 <img src="screenshots/Screenshot_2.png" width="20%">
-<img src="screenshots/Screenshot_3.png" width="20%">
 <img src="screenshots/Screenshot_4.png" width="20%">
+<img src="screenshots/movie_app.gif" width="20%">
 </p>
 
 
