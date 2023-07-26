@@ -6,11 +6,18 @@ import 'package:movie_app/models/trending_model.dart';
 import 'package:movie_app/screens/widgets/error_message.dart';
 import 'package:movie_app/screens/widgets/movie_grid_view.dart';
 
-class TrendingMovieScreen extends StatelessWidget {
+class TrendingMovieScreen extends StatefulWidget {
   const TrendingMovieScreen({super.key});
 
   @override
+  State<TrendingMovieScreen> createState() => _TrendingMovieScreenState();
+}
+
+class _TrendingMovieScreenState extends State<TrendingMovieScreen>
+    with AutomaticKeepAliveClientMixin<TrendingMovieScreen> {
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     List<MovieTrendingModel> movies = [];
 
     return BlocBuilder<TrendingMovieBloc, TrendingMovieState>(
@@ -30,4 +37,8 @@ class TrendingMovieScreen extends StatelessWidget {
       },
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => throw UnimplementedError();
 }
