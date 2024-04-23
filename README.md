@@ -24,5 +24,4 @@ uma lista de tendências diárias.</br>
 
 ### Desenvolvedora
 
-Jusy Lopes
-https://www.linkedin.com/in/jusylopes
+<a href="https://www.linkedin.com/in/jusy-lopes/" > <img align="center" src="https://img.shields.io/badge/- jusylopes-05122A?style=flat&logo=linkedin" alt="linkedin"/>
